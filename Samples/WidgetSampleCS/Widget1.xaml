@@ -5,17 +5,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:WidgetSampleCS"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
     <Grid>
-        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" />
-
-        <StackPanel
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Orientation="Vertical">
-            <TextBlock Padding="0,0,0,5" Text="Widget1" />
-            <Button x:Name="myButton" Click="MyButton_Click">Click Me</Button>
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <controls:WebView2 Grid.Column="0" Grid.Row="0" Source="data:text/html;charset=utf-8,%3C!DOCTYPE%20html%3E%3Chtml%20lang%3D%22en%22%3E%3Chead%3E%3Cmeta%20charset%3D%22UTF-8%22%3E%3Ctitle%3EURL%20Navigator%3C%2Ftitle%3E%3Cstyle%3Ebody%7Bdisplay%3Aflex%3Bjustify-content%3Acenter%3Balign-items%3Acenter%3Bheight%3A100vh%3Bmargin%3A0%3Bfont-family%3Asans-serif%7Dinput%5Btype%3D%22text%22%5D%7Bwidth%3A300px%3Bpadding%3A10px%3Bfont-size%3A16px%3Bbox-shadow%3A0%200%205px%20rgba(0%2C0%2C0%2C0.1)%7D%3C%2Fstyle%3E%3C%2Fhead%3E%3Cbody%3E%3Cinput%20type%3D%22text%22%20id%3D%22urlInput%22%20placeholder%3D%22Enter%20a%20URL%20and%20press%20Enter%22%3E%3Cscript%3Econst%20input%3Ddocument.getElementById(%22urlInput%22)%3Binput.addEventListener(%22keypress%22%2Cfunction(event)%7Bif(event.key%3D%3D%3D%22Enter%22)%7Blet%20url%3Dinput.value.trim()%3Bif(!%2F%5Ehttps%3F%3A%5C%2F%5C%2F%2Fi.test(url))%7Burl%3D%22https%3A%2F%2F%22+url%3B%7Dwindow.location.href%3Durl%3B%7D%7D)%3B%3C%2Fscript%3E%3C%2Fbody%3E%3C%2Fhtml%3E" />
     </Grid>
 </Page>
